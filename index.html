@@ -1,647 +1,305 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Reborn Ready Housing | Transitional Housing | Macon, GA</title>
-  <meta name="description" content="Reborn Ready Housing LLC provides safe, supportive transitional housing for justice-involved adults in Macon-Bibb County, Georgia. Apply today or refer a client." />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --navy:      #1A2456;
-      --navy-dark: #0f162e;
-      --teal:      #1A8C7A;
-      --teal-mid:  #147a6a;
-      --teal-light:#E6F4F2;
-      --gold:      #D4A017;
-      --white:     #FFFFFF;
-      --warm:      #F9F7F3;
-      --text:      #1C1C1C;
-      --text-mid:  #4A4A4A;
-      --text-light:#6A6A6A;
-    }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background: var(--warm);
-      color: var(--text);
-      line-height: 1.6;
-    }
-
-    /* ── NAV ── */
-    nav {
-      background: var(--teal);
-      padding: 1.1rem 2.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-    .nav-logo {
-      font-family: 'Playfair Display', serif;
-      color: var(--white);
-      font-size: 1.15rem;
-      font-weight: 700;
-    }
-    .nav-logo span { color: var(--gold); }
-    .nav-tag {
-      font-size: 0.65rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.7);
-      display: block;
-      margin-top: 2px;
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 2.2rem;
-    }
-    nav ul a {
-      color: rgba(255,255,255,0.85);
-      text-decoration: none;
-      font-size: 0.875rem;
-      font-weight: 500;
-      letter-spacing: 0.03em;
-      transition: color 0.2s;
-    }
-    nav ul a:hover { color: var(--gold); }
-
-    /* ── HERO ── */
-    .hero {
-      background: var(--navy);
-      color: var(--white);
-      padding: 5.5rem 2.5rem 4.5rem;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero::after {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      height: 6px;
-      background: linear-gradient(90deg, var(--teal), var(--gold), var(--teal));
-    }
-    .hero-eyebrow {
-      display: inline-block;
-      background: var(--teal);
-      color: var(--white);
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      padding: 0.4rem 1rem;
-      margin-bottom: 1.75rem;
-    }
-    .hero h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2.2rem, 5.5vw, 3.8rem);
-      font-weight: 900;
-      line-height: 1.1;
-      max-width: 680px;
-      margin: 0 auto 1.5rem;
-    }
-    .hero h1 em {
-      font-style: normal;
-      color: var(--gold);
-    }
-    .hero-sub {
-      font-size: 1.05rem;
-      color: rgba(255,255,255,0.75);
-      max-width: 540px;
-      margin: 0 auto 2.75rem;
-      line-height: 1.75;
-    }
-    .hero-cta-row { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-    .btn-teal {
-      background: var(--teal);
-      color: var(--white);
-      font-weight: 700;
-      font-size: 0.95rem;
-      padding: 0.9rem 2.2rem;
-      border-radius: 2px;
-      text-decoration: none;
-      letter-spacing: 0.04em;
-      transition: background 0.2s, transform 0.15s;
-      display: inline-block;
-    }
-    .btn-teal:hover { background: var(--teal-mid); transform: translateY(-1px); }
-    .btn-gold {
-      background: var(--gold);
-      color: var(--navy);
-      font-weight: 700;
-      font-size: 0.95rem;
-      padding: 0.9rem 2.2rem;
-      border-radius: 2px;
-      text-decoration: none;
-      letter-spacing: 0.04em;
-      transition: background 0.2s;
-      display: inline-block;
-    }
-    .btn-gold:hover { background: #c4910f; }
-
-    /* ── WHAT WE OFFER ── */
-    .offer {
-      background: var(--teal-light);
-      padding: 4rem 2.5rem;
-      text-align: center;
-    }
-    .offer-inner { max-width: 900px; margin: 0 auto; }
-    .section-label {
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--teal);
-      margin-bottom: 0.75rem;
-    }
-    .section-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.7rem, 3.5vw, 2.4rem);
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 1rem;
-      line-height: 1.2;
-    }
-    .offer-lead {
-      font-size: 1rem;
-      color: var(--text-mid);
-      line-height: 1.75;
-      max-width: 640px;
-      margin: 0 auto 3rem;
-    }
-    .offer-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.25rem;
-      text-align: left;
-    }
-    .offer-item {
-      background: var(--white);
-      padding: 1.5rem;
-      border-radius: 2px;
-      border-left: 4px solid var(--teal);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-    }
-    .offer-item .offer-icon { font-size: 1.5rem; margin-bottom: 0.75rem; display: block; }
-    .offer-item h4 {
-      font-weight: 700;
-      font-size: 0.95rem;
-      color: var(--navy);
-      margin-bottom: 0.4rem;
-    }
-    .offer-item p {
-      font-size: 0.875rem;
-      color: var(--text-mid);
-      line-height: 1.6;
-    }
-
-    /* ── HOW TO APPLY ── */
-    .apply {
-      padding: 5rem 2.5rem;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-    .apply .section-title { margin-bottom: 0.75rem; }
-    .apply-lead {
-      font-size: 0.975rem;
-      color: var(--text-mid);
-      line-height: 1.7;
-      margin-bottom: 3rem;
-      max-width: 600px;
-    }
-    .steps {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-      position: relative;
-    }
-    .step {
-      display: grid;
-      grid-template-columns: 60px 1fr;
-      gap: 1.5rem;
-      align-items: flex-start;
-      padding-bottom: 2.5rem;
-      position: relative;
-    }
-    .step:not(:last-child)::before {
-      content: '';
-      position: absolute;
-      left: 29px;
-      top: 55px;
-      bottom: 0;
-      width: 2px;
-      background: var(--teal-light);
-    }
-    .step-num {
-      width: 56px;
-      height: 56px;
-      border-radius: 50%;
-      background: var(--navy);
-      color: var(--white);
-      font-family: 'Playfair Display', serif;
-      font-size: 1.3rem;
-      font-weight: 900;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      z-index: 1;
-    }
-    .step-content h4 {
-      font-weight: 700;
-      font-size: 1rem;
-      color: var(--navy);
-      margin-bottom: 0.4rem;
-      padding-top: 0.9rem;
-    }
-    .step-content p {
-      font-size: 0.9rem;
-      color: var(--text-mid);
-      line-height: 1.7;
-    }
-    .apply-cta {
-      background: var(--navy);
-      color: var(--white);
-      padding: 2rem;
-      border-radius: 2px;
-      margin-top: 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-    }
-    .apply-cta p {
-      font-size: 1rem;
-      line-height: 1.5;
-      max-width: 500px;
-    }
-    .apply-cta strong { color: var(--gold); }
-
-    /* ── ELIGIBILITY ── */
-    .eligibility {
-      background: var(--navy);
-      color: var(--white);
-      padding: 5rem 2.5rem;
-    }
-    .eligibility-inner {
-      max-width: 1000px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      align-items: start;
-    }
-    .eligibility .section-label { color: var(--gold); }
-    .eligibility .section-title { color: var(--white); margin-bottom: 1.5rem; }
-    .elig-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-    }
-    .elig-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.75rem;
-      font-size: 0.9rem;
-      color: rgba(255,255,255,0.8);
-      line-height: 1.5;
-    }
-    .elig-check {
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      background: var(--teal);
-      color: var(--white);
-      font-size: 0.65rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      margin-top: 1px;
-    }
-    .priority-box {
-      background: rgba(212,160,23,0.12);
-      border: 1px solid var(--gold);
-      border-radius: 2px;
-      padding: 1.75rem;
-    }
-    .priority-box h4 {
-      color: var(--gold);
-      font-weight: 700;
-      font-size: 0.85rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      margin-bottom: 1rem;
-    }
-    .priority-box p {
-      font-size: 0.9rem;
-      color: rgba(255,255,255,0.75);
-      line-height: 1.7;
-    }
-
-    /* ── REFERRALS ── */
-    .referrals {
-      padding: 5rem 2.5rem;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-    .referral-card {
-      background: var(--white);
-      border-top: 4px solid var(--gold);
-      padding: 2.5rem 2rem;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
-    }
-    .referral-card h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.4rem;
-      color: var(--navy);
-      margin-bottom: 0.75rem;
-      font-weight: 700;
-    }
-    .referral-card p {
-      font-size: 0.95rem;
-      color: var(--text-mid);
-      line-height: 1.75;
-      margin-bottom: 1.5rem;
-      max-width: 600px;
-    }
-    .referral-who {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.6rem;
-      margin-bottom: 1.75rem;
-    }
-    .referral-tag {
-      background: var(--teal-light);
-      color: var(--teal);
-      font-size: 0.78rem;
-      font-weight: 600;
-      padding: 0.35rem 0.85rem;
-      border-radius: 50px;
-      letter-spacing: 0.03em;
-    }
-
-    /* ── FOOTER ── */
-    footer {
-      background: var(--navy-dark);
-      color: rgba(255,255,255,0.5);
-      padding: 3rem 2.5rem;
-      text-align: center;
-      font-size: 0.85rem;
-      line-height: 2;
-    }
-    .footer-name {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.1rem;
-      color: var(--white);
-      margin-bottom: 0.25rem;
-    }
-    .footer-tagline {
-      font-style: italic;
-      color: var(--gold);
-      margin-bottom: 1rem;
-      font-family: 'Playfair Display', serif;
-    }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 768px) {
-      nav ul { display: none; }
-      .eligibility-inner { grid-template-columns: 1fr; gap: 2rem; }
-      .apply-cta { flex-direction: column; text-align: center; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reborn Ready Housing LLC | Transitional Housing | Macon, GA</title>
+<meta name="description" content="Structured transitional housing in Macon-Bibb County, Georgia for justice-involved adults ready to rebuild. Join the waitlist.">
+<style>
+  :root{
+    --navy:#1A2456; --navy-dark:#0E1430; --teal:#1A8C7A; --teal-dark:#12705F;
+    --gold:#D4A017; --gold-deep:#9C7A0B; --cream:#FAF6EE; --paper:#FFFFFF;
+    --ink:#23272E; --muted:#5B6472; --line:#E8E2D4;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--paper);line-height:1.65;font-size:17px}
+  h1,h2,h3{line-height:1.2;letter-spacing:-0.02em;color:var(--navy)}
+  h2{font-size:2rem;margin-bottom:.6rem}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 1.25rem}
+  section{padding:4.5rem 0}
+  .eyebrow{display:inline-block;font-size:.78rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--teal-dark);margin-bottom:.9rem}
+  .lede{font-size:1.15rem;color:var(--muted);max-width:640px}
+  /* NAV */
+  .nav{position:sticky;top:0;z-index:50;background:var(--paper);border-bottom:1px solid var(--line)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.55rem 1.25rem;max-width:1180px;margin:0 auto}
+  .nav img.logo{height:54px;width:auto}
+  .nav-links{display:flex;gap:1.4rem;align-items:center}
+  .nav-links a{color:var(--ink);text-decoration:none;font-weight:600;font-size:.95rem}
+  .nav-links a:hover{color:var(--teal-dark)}
+  .btn{display:inline-block;padding:.8rem 1.6rem;border-radius:999px;font-weight:800;text-decoration:none;font-size:1rem;border:2px solid transparent;cursor:pointer}
+  .btn-gold{background:var(--gold);color:var(--navy-dark)}
+  .btn-gold:hover{background:var(--gold-deep);color:#fff}
+  .btn-outline{border-color:rgba(255,255,255,.7);color:#fff}
+  .btn-outline:hover{background:rgba(255,255,255,.12)}
+  .btn-navy{background:var(--navy);color:#fff}
+  .btn-navy:hover{background:var(--navy-dark)}
+  .btn-sm{padding:.55rem 1.15rem;font-size:.9rem}
+  /* HERO */
+  .hero{background:var(--navy);color:#fff;padding:4.5rem 0 5rem;position:relative;overflow:hidden}
+  .hero::after{content:"";position:absolute;inset:0;background:radial-gradient(900px 420px at 85% -10%,rgba(212,160,23,.16),transparent 60%)}
+  .hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.15fr .85fr;gap:3rem;align-items:center}
+  .hero .eyebrow{color:var(--gold)}
+  .hero h1{color:#fff;font-size:2.9rem;margin-bottom:1.1rem}
+  .hero p.sub{color:rgba(255,255,255,.82);font-size:1.18rem;max-width:560px;margin-bottom:1.8rem}
+  .hero-ctas{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:1.4rem}
+  .hero-note{font-size:.92rem;color:rgba(255,255,255,.65)}
+  .hero-photo{background:#fff;border-radius:18px;padding:.7rem .7rem 1rem;box-shadow:0 24px 60px rgba(0,0,0,.35);transform:rotate(1.5deg)}
+  .hero-photo img{width:100%;border-radius:12px;display:block}
+  .hero-photo figcaption{color:var(--ink);font-size:.92rem;padding:.8rem .4rem 0;text-align:center}
+  .hero-photo figcaption strong{display:block;color:var(--navy);font-size:1rem}
+  /* STRIP */
+  .strip{background:var(--gold);color:var(--navy-dark);padding:1rem 0;font-weight:700;font-size:.98rem}
+  .strip .wrap{display:flex;gap:2rem;flex-wrap:wrap;align-items:center;justify-content:center;text-align:center}
+  .strip span.dot{opacity:.5}
+  /* CARDS */
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-top:2.2rem}
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:1.7rem 1.5rem}
+  .card h3{font-size:1.12rem;margin-bottom:.5rem}
+  .card p{color:var(--muted);font-size:.98rem}
+  .card .icon{font-size:1.7rem;margin-bottom:.7rem}
+  .cream{background:var(--cream)}
+  /* STRUCTURE list */
+  .rules{margin-top:2rem;display:grid;gap:1rem;max-width:720px}
+  .rule{display:flex;gap:1rem;align-items:flex-start;background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:1.15rem 1.3rem}
+  .rule .n{flex:0 0 34px;height:34px;border-radius:50%;background:var(--navy);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center}
+  .rule p{color:var(--muted)}
+  .rule p strong{color:var(--ink)}
+  .plain-talk{margin-top:2rem;background:var(--navy);color:#fff;border-radius:14px;padding:1.8rem 2rem;max-width:720px}
+  .plain-talk p{color:rgba(255,255,255,.85);font-size:1.05rem}
+  .plain-talk strong{color:var(--gold)}
+  /* WHO */
+  .who{background:var(--navy);color:#fff}
+  .who h2{color:#fff}
+  .who .lede{color:rgba(255,255,255,.75)}
+  .who-list{margin-top:2rem;display:grid;gap:.9rem;max-width:680px}
+  .who-list li{list-style:none;display:flex;gap:.9rem;align-items:flex-start;font-size:1.08rem;color:rgba(255,255,255,.9)}
+  .who-list li::before{content:"✓";color:var(--gold);font-weight:900;flex:0 0 auto}
+  .who-note{margin-top:1.8rem;color:rgba(255,255,255,.75);font-size:1.05rem;max-width:640px}
+  .who-note strong{color:#fff}
+  /* STEPS */
+  .steps{margin-top:2.2rem;display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem}
+  .step{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:1.5rem 1.3rem;position:relative}
+  .step .snum{font-size:.8rem;font-weight:800;letter-spacing:.12em;color:var(--teal-dark);text-transform:uppercase}
+  .step h3{font-size:1.05rem;margin:.5rem 0 .4rem}
+  .step p{color:var(--muted);font-size:.95rem}
+  .cta-row{margin-top:2.4rem;display:flex;gap:1rem;flex-wrap:wrap;align-items:center}
+  /* BAND */
+  .band{position:relative;padding:0;height:340px;overflow:hidden}
+  .band img{width:100%;height:100%;object-fit:cover;display:block}
+  .band .band-cap{position:absolute;inset:0;background:linear-gradient(to top,rgba(14,20,48,.78),rgba(14,20,48,.15));display:flex;align-items:flex-end}
+  .band .band-cap .wrap{padding-bottom:2rem}
+  .band .band-cap p{color:#fff;font-size:1.5rem;font-weight:800;letter-spacing:-0.01em}
+  .band .band-cap small{display:block;color:rgba(255,255,255,.75);font-weight:600;font-size:.95rem;letter-spacing:.06em;text-transform:uppercase;margin-bottom:.3rem}
+  /* REFERRALS */
+  .ref-box{margin-top:2rem;background:var(--cream);border:1px solid var(--line);border-radius:14px;padding:2rem;max-width:760px}
+  .ref-box h3{margin-bottom:.6rem}
+  .ref-box ul{margin:.8rem 0 1.2rem 1.2rem;color:var(--muted)}
+  .ref-box a{color:var(--teal-dark);font-weight:700}
+  /* CONTACT */
+  .contact-grid{margin-top:2rem;display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+  .contact-card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:1.8rem 1.5rem;text-align:center}
+  .contact-card .icon{font-size:1.8rem;margin-bottom:.6rem}
+  .contact-card h3{font-size:1.05rem;margin-bottom:.4rem}
+  .contact-card p,.contact-card a{color:var(--muted)}
+  .contact-card a{color:var(--teal-dark);font-weight:700;text-decoration:none}
+  /* FOOTER */
+  footer{background:var(--navy-dark);color:rgba(255,255,255,.72);padding:3.5rem 0 2rem}
+  .foot-grid{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:start;margin-bottom:2.2rem}
+  .foot-grid img{height:64px;width:auto;background:#fff;border-radius:10px;padding:6px;margin-bottom:1rem}
+  footer h4{color:#fff;margin-bottom:.6rem;font-size:1rem}
+  footer a{color:var(--gold);text-decoration:none}
+  footer a:hover{text-decoration:underline}
+  .foot-bottom{border-top:1px solid rgba(255,255,255,.14);padding-top:1.4rem;font-size:.88rem;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+  @media(max-width:860px){
+    .hero-grid{grid-template-columns:1fr}
+    .hero h1{font-size:2.2rem}
+    .cards,.steps,.contact-grid{grid-template-columns:1fr}
+    .nav-links a:not(.btn){display:none}
+    .foot-grid{grid-template-columns:1fr}
+    section{padding:3.2rem 0}
+  }
+</style>
 </head>
 <body>
-
-  <!-- NAV -->
-  <nav>
-    <div class="nav-logo">
-      Reborn Ready <span>Housing</span>
-      <span class="nav-tag">Transitional Housing Provider — Macon, GA</span>
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#top"><img class="logo" src="img/logo.jpg" alt="Reborn Ready Housing LLC"></a>
+    <div class="nav-links">
+      <a href="#housing">The Housing</a>
+      <a href="#structure">The Structure</a>
+      <a href="#who">Who It's For</a>
+      <a href="#get-in">Get In</a>
+      <a href="#referrals">Referrals</a>
+      <a class="btn btn-navy btn-sm" href="mailto:info@rebornreadyhousing.org?subject=Waitlist">Join the Waitlist</a>
     </div>
-    <ul>
-      <li><a href="#offer">What We Offer</a></li>
-      <li><a href="#apply">How to Apply</a></li>
-      <li><a href="#eligibility">Eligibility</a></li>
-      <li><a href="#referrals">Referrals</a></li>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">Reborn Ready Housing LLC &mdash; Macon, Georgia</span>
+      <h1>Coming home shouldn't mean starting over with nothing.</h1>
+      <p class="sub">Structured transitional housing in Macon-Bibb County for justice-involved adults who are ready to rebuild. A real bed. Clear rules. Somebody in your corner.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-gold" href="mailto:info@rebornreadyhousing.org?subject=Waitlist">Join the Waitlist</a>
+        <a class="btn btn-outline" href="#referrals">Refer Someone</a>
+      </div>
+      <p class="hero-note">No vacancies right now &mdash; the waitlist is open. That's how you get in line.</p>
+    </div>
+    <figure class="hero-photo">
+      <img src="img/chrissy.jpg" alt="Chrissy Hunt, Founder of Reborn Ready Housing LLC">
+      <figcaption><strong>Chrissy Hunt</strong>Founder, Reborn Ready Housing LLC</figcaption>
+    </figure>
+  </div>
+</header>
+
+<!-- STRIP -->
+<div class="strip">
+  <div class="wrap">
+    <span>Now enrolling the waitlist</span><span class="dot">&bull;</span>
+    <span>Macon-Bibb County, GA</span><span class="dot">&bull;</span>
+    <span>Structured program</span><span class="dot">&bull;</span>
+    <span>Veterans prioritized</span>
+  </div>
+</div>
+
+<!-- WHAT YOU GET -->
+<section class="cream" id="housing">
+  <div class="wrap">
+    <span class="eyebrow">The Housing</span>
+    <h2>What's included. No fine print.</h2>
+    <p class="lede">This is what a bed with Reborn Ready Housing actually comes with &mdash; the stuff that keeps life from falling apart in the first ninety days.</p>
+    <div class="cards">
+      <div class="card"><div class="icon">&#127969;</div><h3>A safe, stable bed</h3><p>Transitional housing in Macon-Bibb County. Clean, supervised, and drug-free &mdash; a real address while you rebuild.</p></div>
+      <div class="card"><div class="icon">&#127860;</div><h3>Meals</h3><p>Nobody's figuring out dinner alone here. Meals are part of the program.</p></div>
+      <div class="card"><div class="icon">&#128663;</div><h3>Transportation</h3><p>Rides to work, appointments, and the places you have to be. No bus line, no excuse.</p></div>
+      <div class="card"><div class="icon">&#128179;</div><h3>Benefits &amp; ID help</h3><p>We help you get your ID, your benefits, and your paperwork straight &mdash; the boring stuff that unlocks everything else.</p></div>
+      <div class="card"><div class="icon">&#129309;</div><h3>Case management</h3><p>One-on-one support and goal planning through our nonprofit partner, Reborn Ready Corporation.</p></div>
+      <div class="card"><div class="icon">&#128188;</div><h3>Job training access</h3><p>Employment readiness and trade-skill connections so the paycheck starts coming.</p></div>
+    </div>
+  </div>
+</section>
+<!-- STRUCTURE -->
+<section id="structure">
+  <div class="wrap">
+    <span class="eyebrow">The Structure</span>
+    <h2>Structure is the point.</h2>
+    <p class="lede">This isn't just a roof. It's a program with expectations &mdash; because that's what keeps people from going back.</p>
+    <div class="rules">
+      <div class="rule"><span class="n">1</span><p><strong>Clear house rules, from day one.</strong> You know exactly what's expected before you ever move in. No surprises, no guessing.</p></div>
+      <div class="rule"><span class="n">2</span><p><strong>Regular check-ins.</strong> Staff knows your name, your plan, and where you stand on it.</p></div>
+      <div class="rule"><span class="n">3</span><p><strong>Everybody contributes.</strong> You're working, in job training, or actively hunting. Nobody's sitting still here.</p></div>
+      <div class="rule"><span class="n">4</span><p><strong>Respect the house and the people in it.</strong> Clean, sober, accountable. That's the deal, for everyone.</p></div>
+    </div>
+    <div class="plain-talk">
+      <p>Plain talk: <strong>if structure sounds like a lot, this probably isn't your place yet.</strong> If it sounds like exactly what you need &mdash; keep reading.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHO -->
+<section class="who" id="who">
+  <div class="wrap">
+    <span class="eyebrow" style="color:var(--gold)">Who It's For</span>
+    <h2>Built for people coming home.</h2>
+    <p class="lede">Reborn Ready Housing serves justice-involved adults returning to Macon-Bibb County. Here's who fits:</p>
+    <ul class="who-list">
+      <li>Justice-involved adults, 18 and up</li>
+      <li>Coming home to Macon-Bibb County</li>
+      <li>No stable housing plan in place</li>
+      <li>Ready to work a program &mdash; employed, in training, or job hunting</li>
+      <li>Veterans get priority placement</li>
     </ul>
-  </nav>
+    <p class="who-note">One thing, said plainly: <strong>you have to want it.</strong> We bring the bed and the structure. You bring the effort.</p>
+  </div>
+</section>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-eyebrow">Transitional Housing · Macon-Bibb County, GA</div>
-    <h1>A Safe Place to Land.<br /><em>A Real Path Forward.</em></h1>
-    <p class="hero-sub">
-      Reborn Ready Housing LLC provides stable, supportive transitional housing
-      for justice-involved adults returning to the Macon community —
-      because where you sleep changes everything about what comes next.
-    </p>
-    <div class="hero-cta-row">
-      <a href="#apply" class="btn-teal">Apply for Housing</a>
-      <a href="#referrals" class="btn-gold">Refer a Client</a>
-    </div>
-  </section>
-
-  <!-- WHAT WE OFFER -->
-  <section class="offer" id="offer">
-    <div class="offer-inner">
-      <div class="section-label">What We Provide</div>
-      <h2 class="section-title">More than a roof. A foundation.</h2>
-      <p class="offer-lead">
-        Our transitional housing is designed to give residents the stability
-        they need to focus on rebuilding — with structured support built into
-        the experience, not bolted on as an afterthought.
-      </p>
-      <div class="offer-grid">
-        <div class="offer-item">
-          <span class="offer-icon">🏠</span>
-          <h4>Safe Housing</h4>
-          <p>Clean, secure transitional units in Macon-Bibb County for qualifying residents upon release.</p>
-        </div>
-        <div class="offer-item">
-          <span class="offer-icon">📋</span>
-          <h4>Structured Program</h4>
-          <p>House rules, progress milestones, and accountability structures that prepare residents for independent living.</p>
-        </div>
-        <div class="offer-item">
-          <span class="offer-icon">🔧</span>
-          <h4>Job Training Access</h4>
-          <p>Residents have direct access to skilled trades training and paid work through our workforce partner.</p>
-        </div>
-        <div class="offer-item">
-          <span class="offer-icon">🤝</span>
-          <h4>Wraparound Referrals</h4>
-          <p>Connection to case management, counseling, benefits, and community services through Reborn Ready Corp.</p>
-        </div>
-        <div class="offer-item">
-          <span class="offer-icon">🎖️</span>
-          <h4>Veterans Priority</h4>
-          <p>Dedicated housing support for justice-involved veterans, including priority placement and VA referrals.</p>
-        </div>
-        <div class="offer-item">
-          <span class="offer-icon">📍</span>
-          <h4>Macon-Based</h4>
-          <p>Located in Macon-Bibb County — close to services, courts, employment, and community support networks.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- HOW TO APPLY -->
-  <section class="apply" id="apply">
-    <div class="section-label">Application Process</div>
-    <h2 class="section-title">How to apply for housing.</h2>
-    <p class="apply-lead">
-      Our process is straightforward. We want to remove barriers, not create them.
-      Here's what to expect from first contact to move-in.
-    </p>
+<!-- GET IN -->
+<section class="cream" id="get-in">
+  <div class="wrap">
+    <span class="eyebrow">Get In</span>
+    <h2>The waitlist is open.</h2>
+    <p class="lede">We're building toward our first house, so there's no move-in date to promise yet. Here's how the line works &mdash; first come, first placed.</p>
     <div class="steps">
-      <div class="step">
-        <div class="step-num">1</div>
-        <div class="step-content">
-          <h4>Reach Out</h4>
-          <p>Contact us by email or phone to express your interest. You can also be referred by a case manager, probation officer, court, or social services agency.</p>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">2</div>
-        <div class="step-content">
-          <h4>Intake Screening</h4>
-          <p>We'll have a brief conversation to understand your situation, release date, and needs. This is not an interview — it's a conversation to see how we can help.</p>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">3</div>
-        <div class="step-content">
-          <h4>Application & Review</h4>
-          <p>Complete a short application. We review all submissions and will contact you with a decision or next steps within a reasonable timeframe based on availability.</p>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">4</div>
-        <div class="step-content">
-          <h4>Program Orientation</h4>
-          <p>Approved residents complete an orientation covering house expectations, support services, and the path toward stable independent housing.</p>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">5</div>
-        <div class="step-content">
-          <h4>Move In</h4>
-          <p>Welcome home. Your journey toward stability, employment, and community starts here.</p>
-        </div>
-      </div>
+      <div class="step"><span class="snum">Step 1</span><h3>Reach out</h3><p>Email or call. Tell us who you are and where you stand.</p></div>
+      <div class="step"><span class="snum">Step 2</span><h3>Screening conversation</h3><p>We talk. Figure out together whether this is the right fit.</p></div>
+      <div class="step"><span class="snum">Step 3</span><h3>Join the waitlist</h3><p>You're in line, in order. We'll stay in touch.</p></div>
+      <div class="step"><span class="snum">Step 4</span><h3>Placement</h3><p>When a bed opens, the waitlist gets the first call.</p></div>
     </div>
-    <div class="apply-cta">
-      <p>Ready to take the first step? <strong>Contact us today</strong> to start your application or ask questions about availability.<br/>
-      <span style="font-size:0.85rem; color:rgba(255,255,255,0.6); margin-top:0.4rem; display:block;">
-        📍 111 Lower Elm St, Unit #2207, Macon, GA 31206
-      </span>
-      </p>
-      <a href="mailto:info@rebornreadyhousing.org" class="btn-gold">Contact Us to Apply</a>
+    <div class="cta-row">
+      <a class="btn btn-gold" href="mailto:info@rebornreadyhousing.org?subject=Waitlist">Join the Waitlist</a>
+      <a class="btn btn-navy" href="tel:+14782274888">Call (478) 227-4888</a>
     </div>
-  </section>
+  </div>
+</section>
+<!-- MACON BAND -->
+<div class="band">
+  <img src="img/macon-mural.jpg" alt="Mural in Macon, Georgia">
+  <div class="band-cap"><div class="wrap">
+    <small>Home base</small>
+    <p>Macon-Bibb County, Georgia</p>
+  </div></div>
+</div>
 
-  <!-- ELIGIBILITY -->
-  <section class="eligibility" id="eligibility">
-    <div class="eligibility-inner">
+<!-- REFERRALS -->
+<section id="referrals">
+  <div class="wrap">
+    <span class="eyebrow">Referrals</span>
+    <h2>For case managers, courts &amp; partners.</h2>
+    <p class="lede">Work with someone coming home to Macon-Bibb who needs structured housing? Send them our way.</p>
+    <div class="ref-box">
+      <h3>What to send</h3>
+      <ul>
+        <li>Their name and a way to reach them</li>
+        <li>Expected release date, if known</li>
+        <li>What they're walking into &mdash; supervision status, immediate needs</li>
+      </ul>
+      <h3>Where to send it</h3>
+      <p>Email <a href="mailto:info@rebornreadyhousing.org?subject=Referral">info@rebornreadyhousing.org</a> with <strong>&ldquo;Referral&rdquo;</strong> in the subject line. We'll take it from there.</p>
+      <p style="margin-top:1rem">Residents connect to case management, counseling connections, and wraparound support through our nonprofit partner, <a href="https://rebornready.com">Reborn Ready Corporation</a>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="cream" id="contact">
+  <div class="wrap">
+    <span class="eyebrow">Contact</span>
+    <h2>Talk to us.</h2>
+    <p class="lede">Questions about the waitlist, the program, or a referral &mdash; reach out. A real person answers.</p>
+    <div class="contact-grid">
+      <div class="contact-card"><div class="icon">&#9993;</div><h3>Email</h3><p><a href="mailto:info@rebornreadyhousing.org">info@rebornreadyhousing.org</a></p></div>
+      <div class="contact-card"><div class="icon">&#9742;</div><h3>Phone</h3><p><a href="tel:+14782274888">(478) 227-4888</a></p></div>
+      <div class="contact-card"><div class="icon">&#128205;</div><h3>Service area</h3><p>Macon-Bibb County, Georgia</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
       <div>
-        <div class="section-label">Who Qualifies</div>
-        <h2 class="section-title">Eligibility requirements.</h2>
-        <ul class="elig-list">
-          <li>
-            <span class="elig-check">✓</span>
-            Justice-involved adult (18+) recently released or preparing for release from incarceration
-          </li>
-          <li>
-            <span class="elig-check">✓</span>
-            No stable housing plan upon release from a correctional facility
-          </li>
-          <li>
-            <span class="elig-check">✓</span>
-            Willingness to participate in program structure, case planning, and house rules
-          </li>
-          <li>
-            <span class="elig-check">✓</span>
-            Located in or returning to Macon-Bibb County, Georgia
-          </li>
-          <li>
-            <span class="elig-check">✓</span>
-            Commitment to seeking employment or participating in workforce training
-          </li>
-          <li>
-            <span class="elig-check">✓</span>
-            Must not pose a direct safety risk to other residents (assessed individually)
-          </li>
-        </ul>
+        <img src="img/logo.jpg" alt="Reborn Ready Housing LLC logo">
+        <h4>Reborn Ready Housing LLC</h4>
+        <p><em>&ldquo;Building the Foundations. Owning the Transformation.&rdquo;</em></p>
+        <p style="margin-top:.8rem">Structured transitional housing for justice-involved adults in Macon-Bibb County, Georgia.</p>
       </div>
       <div>
-        <div class="priority-box">
-          <h4>Priority Populations</h4>
-          <p>While we serve all eligible justice-involved adults, we give priority placement to:</p>
-          <br />
-          <ul class="elig-list">
-            <li><span class="elig-check">★</span> Justice-involved veterans</li>
-            <li><span class="elig-check">★</span> Adults at moderate-to-high recidivism risk with no housing plan</li>
-            <li><span class="elig-check">★</span> Individuals referred through Georgia DCS Reentry Partnership Housing program</li>
-          </ul>
-          <br />
-          <p style="font-size:0.85rem; color:rgba(255,255,255,0.6);">
-            Not sure if you qualify? Contact us anyway. We'll do our best to connect you with the right resources even if we can't house you directly.
-          </p>
-        </div>
+        <h4>Our nonprofit partner</h4>
+        <p>Reborn Ready Housing LLC operates in partnership with <a href="https://rebornready.com">Reborn Ready Corporation</a>, a 501(c)(3) nonprofit providing case management, accountability programming, and employment readiness for veterans and justice-involved men.</p>
+        <p style="margin-top:1rem"><a href="mailto:info@rebornreadyhousing.org">info@rebornreadyhousing.org</a><br><a href="tel:+14782274888">(478) 227-4888</a></p>
       </div>
     </div>
-  </section>
-
-  <!-- REFERRALS -->
-  <section class="referrals" id="referrals">
-    <div class="section-label">For Case Managers & Partners</div>
-    <h2 class="section-title">Refer a client to us.</h2>
-    <div class="referral-card">
-      <h3>We accept referrals from partner organizations.</h3>
-      <p>
-        If you work with justice-involved adults in the Macon-Bibb County area and have a client
-        who needs transitional housing, we want to hear from you. Our referral process is simple
-        and our team responds promptly. The sooner we connect, the better we can plan for a
-        smooth transition.
-      </p>
-      <div class="referral-who">
-        <span class="referral-tag">Probation & Parole Officers</span>
-        <span class="referral-tag">Courts & Public Defenders</span>
-        <span class="referral-tag">Social Services Agencies</span>
-        <span class="referral-tag">Correctional Facilities</span>
-        <span class="referral-tag">VA & Veterans Services</span>
-        <span class="referral-tag">Faith Organizations</span>
-        <span class="referral-tag">Nonprofit Partners</span>
-        <span class="referral-tag">Reentry Programs</span>
-      </div>
-      <a href="mailto:info@rebornreadyhousing.org" class="btn-teal">Submit a Referral</a>
+    <div class="foot-bottom">
+      <span>&copy; 2026 Reborn Ready Housing LLC. All rights reserved.</span>
+      <span>Macon, Georgia</span>
     </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <p class="footer-name">Reborn Ready Housing LLC</p>
-    <p class="footer-tagline">"Building the Foundations. Owning the Transformation."</p>
-    <p>111 Lower Elm St, Unit #2207, Macon, GA 31206</p>
-    <p>info@rebornreadyhousing.org</p>
-    <p style="margin-top:0.5rem;">&copy; 2026 Reborn Ready Housing LLC. All rights reserved.</p>
-    <p style="margin-top:0.5rem; font-size:0.8rem;">
-      A proud partner of <a href="#" style="color:var(--gold); text-decoration:none;">Reborn Ready Corp</a>
-    </p>
-  </footer>
-
+  </div>
+</footer>
 </body>
 </html>
